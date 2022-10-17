@@ -1,7 +1,6 @@
-erDiagram
-
-users{
-  string name
-  string email
-  integer age
+@startuml
+entity "users" {
+  name
+  age
 }
+@enduml
