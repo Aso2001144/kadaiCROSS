@@ -15,58 +15,70 @@ package "課題クロス" as target_system {
       マスターテーブルを M、トランザクションを T などで表記
       １文字なら "主" とか "従" など日本語でも記載可能
      '/
-    entity "顧客マスタ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
-        + customer_code [PK]
+    entity "ユーザーマスタ" as user <m_users> <<M,MASTER_MARK_COLOR>> {
+        + user_id [PK]
         --
-        pass
-        name
-        address
-        tel
+        user_name
+        grade
         mail
-        del_flag
-        reg_date
+        pass
+        good
+        bad
+        point
+        report
+        created_at
+        updated_at
+        deleted_at
     }
     
-    entity "購入テーブル" as order <order> <<T,TRANSACTION_MARK_COLOR>> {
-        + order_id [PK]
+    entity "掲示板" as board <board> <<T,TRANSACTION_MARK_COLOR>> {
+        + board_id [PK]
         --
-        # customer_code [FK]
-        purchase_date
-        total_price
+        # user_id [FK]
+        # task_id [FK]
+        post_date
+        deleted_at
     }
     
-    entity "購入詳細テーブル" as order_detail  <order_detail> <<T,TRANSACTION_MARK_COLOR>> {
-        + detail_id[PK]
-        + order_id[PK]
+    entity "課題テーブル" as task <task> <<T,TRANSACTION_MARK_COLOR>> {
+        + task_id[PK]
         --
-        # item_code [FK]
-        price
-        num
+        # user_id [FK]
+        ask_task
+        give_task
+        comment
+        deadline
+        created_at
+        updated_at
+        deleted_at
     }
     
-    entity "商品マスタ" as items <m_items> <<M,MASTER_MARK_COLOR>> {
-        + item_code [PK]
+    entity "メッセージマスタ" as msgs <m_msgs> <<M,MASTER_MARK_COLOR>> {
+        + msg_id [PK]
         --
-        item_name
-        price
-        # category_id [FK]
-        image
-        detail
-        del_flag
-        reg_date
+        # room_id [FK]
+        # user_id [FK]
+        msg
+        file_url
+        send_time
+        deleted_at
     }
     
-    entity "カテゴリマスタ" as category <m_category> <<M,MASTER_MARK_COLOR>> {
-        + category_id [PK]
-        --
-        name
-        reg_date
+    entity "部屋テーブル" as room <room> <<T,TRANSACTION_MARK_COLOR>> {
+        + room_id [PK]
+    }
+    
+    entity "メンバー" as member <member> <<T,TRANSACTION_MARK_COLOR>> {
+        # room_id [FK]
+        # user_id [FK]
     }
   }
   
-  customer       |o-ri-o{     order
-order          ||-ri-|{     order_detail
-order_detail    }-do-||     items
-items          }o-le-||     category
+user       |o-ri-o{     board
+board          ||-ri-|{     task
+user    }-do-||     msg
+msg          }o-le-||     room
+user      ||-ri-|    member
+room   }o-le-||  member
 @enduml
 ```
