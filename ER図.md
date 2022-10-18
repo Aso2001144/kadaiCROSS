@@ -53,7 +53,7 @@ package "課題クロス" as target_system {
         deleted_at
     }
     
-    entity "メッセージマスタ" as msgs <m_msgs> <<M,MASTER_MARK_COLOR>> {
+    entity "メッセージ" as msgs <msgs> <<T,TRANSACTION_MARK_COLOR>> {
         + msg_id [PK]
         --
         # room_id [FK]
@@ -68,12 +68,18 @@ package "課題クロス" as target_system {
         + room_id [PK]
     }
     
-    entity "メンバー" as member <member> <<T,TRANSACTION_MARK_COLOR>> {
+    entity "メンバーテーブル" as member <member> <<T,TRANSACTION_MARK_COLOR>> {
         # room_id [FK]
         # user_id [FK]
     }
   }
   
-user       |o-ri-o{     board
+member }o - user
+room | - |{ member
+room | - o{ msgs
+msgs }o - | user
+user | - o{ task
+user |} - o{ board
+board o| - }o task
 @enduml
 ```
