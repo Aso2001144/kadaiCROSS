@@ -74,7 +74,7 @@ package "課題クロス" as target_system {
     }
   }
   
-member }o - user
+member }o -- user
 room | - |{ member
 room | - o{ msgs
 msgs }o - | user
