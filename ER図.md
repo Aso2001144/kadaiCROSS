@@ -75,9 +75,5 @@ package "課題クロス" as target_system {
   }
   
 user       |o-ri-o{     board
-board          ||-ri-|{     task
-user    }-do-||     msg
-msg          }o-le-||     room
-user      ||-ri-|    member
 @enduml
 ```
