@@ -79,6 +79,5 @@ board          ||-ri-|{     task
 user    }-do-||     msg
 msg          }o-le-||     room
 user      ||-ri-|    member
-room   }o-le-||  member
 @enduml
 ```
