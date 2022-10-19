@@ -79,7 +79,5 @@ room | - |{ member
 room | - o{ msgs
 msgs }o - | user
 user | - o{ task
-user |} - o{ board
-board o| - }o task
 @enduml
 ```
