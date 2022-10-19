@@ -66,18 +66,15 @@ package "課題クロス" as target_system {
     
     entity "部屋テーブル" as room <room> <<T,TRANSACTION_MARK_COLOR>> {
         + room_id [PK]
+        --
     }
     
     entity "メンバーテーブル" as member <member> <<T,TRANSACTION_MARK_COLOR>> {
+        --
         # room_id [FK]
         # user_id [FK]
     }
   }
   
-
-room | - |{ member
-room | - o{ msgs
-msgs }o - | user
-user | - o{ task
 @enduml
 ```
