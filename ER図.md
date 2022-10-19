@@ -74,7 +74,6 @@ package "課題クロス" as target_system {
         # room_id [FK]
         # user_id [FK]
     }
-  }
-  
+}
 @enduml
 ```
