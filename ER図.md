@@ -79,5 +79,6 @@ package "課題クロス" as target_system {
         language
     }
 }
+
 @enduml
 ```
