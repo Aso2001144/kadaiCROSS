@@ -15,7 +15,7 @@ package "課題クロス" as target_system {
       マスターテーブルを M、トランザクションを T などで表記
       １文字なら "主" とか "従" など日本語でも記載可能
      '/
-    entity "ユーザーマスタ" as user <m_users> <<M,MASTER_MARK_COLOR>> {
+    entity "ユーザーマスタ" as users <m_users> <<M,MASTER_MARK_COLOR>> {
         + user_id [PK]
         --
         user_name
@@ -44,6 +44,7 @@ package "課題クロス" as target_system {
         + task_id[PK]
         --
         # user_id [FK]
+        # language_id [FK]
         ask_task
         give_task
         comment
