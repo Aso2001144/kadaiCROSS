@@ -72,6 +72,12 @@ package "課題クロス" as target_system {
         # room_id [FK]
         # user_id [FK]
     }
+    
+    entity "言語テーブル" as language <language> <<T,TRANSACTION_MARK_COLOR>> {
+        + language_id [PK]
+        --
+        language
+    }
 }
 @enduml
 ```
