@@ -85,5 +85,7 @@ member }|--o| room
 member ||--o{ msgs
 msgs }o--|| users
 users |o--o{ task
+users }|--o{ board
+task }o--o| board
 @enduml
 ```
