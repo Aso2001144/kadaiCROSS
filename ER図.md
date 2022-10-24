@@ -86,7 +86,7 @@ room ||-o{ msgs
 msgs }o-|| users
 users |o--o{ task
 users }|-o{ board
-task }o-r-o| board
+task }o-r--o| board
 task ||--o| language
 @enduml
 ```
