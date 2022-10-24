@@ -80,6 +80,10 @@ package "課題クロス" as target_system {
         language
     }
 }
-
+users ||--o{ member
+member |}--o| room
+member ||--o{ msgs
+msgs }o--|| users
+users o|--o{ task
 @enduml
 ```
