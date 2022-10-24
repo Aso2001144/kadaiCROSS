@@ -80,13 +80,13 @@ package "課題クロス" as target_system {
         language
     }
 }
-users ||--o{ member
-member }|--o| room
-room ||--o{ msgs
+users ||-o{ member
+member }|-o| room
+room ||-o{ msgs
 msgs }o--|| users
 users |o--o{ task
-users }|--o{ board
-task }o--o| board
-task ||--o| language
+users }|-o{ board
+task }o-o| board
+task ||-o| language
 @enduml
 ```
