@@ -83,7 +83,7 @@ package "課題クロス" as target_system {
 users ||-o{ member
 member }|-o| room
 room ||-o{ msgs
-msgs }o-u-|| users
+msgs }o--|| users
 users |o--o{ task
 users }|-o{ board
 task }o-o| board
