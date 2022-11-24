@@ -45,10 +45,12 @@ package "課題クロス" as target_system {
         --
         # user_id [FK]
         # language_id [FK]
+        partner_user_id
         ask_task
         give_task
         comment
         deadline
+        progress
         created_at
         updated_at
         deleted_at
