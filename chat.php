@@ -28,7 +28,7 @@
 
     </div>
 </header>
-<form action="chat.php" method="post" onsubmit="return validate()" name="form">
+<form action="" method="post" onsubmit="return validate()" name="form">
     ユーザーID
     <div><input type="text" name="y_i"></div>
     メッセージ
@@ -43,14 +43,14 @@ if(isset($_POST['n'])) {
 
     $my_y_i=htmlspecialchars($_POST["y_i"], ENT_QUOTES);//名前を$my_y_iに代入
     $my_mes=htmlspecialchars($_POST["m"], ENT_QUOTES);//メッセージを$my_mesに代入
-    $pdo= "mysql:host=localhost;dbname=LAA1291148-kadai;charset=utf8";
-    $user="LAA1291148";
+    $pdo= "mysql:host=mysql207.phy.lolipop.lan;dbname=LAA1291154-kadaicross;charset=utf8";
+    $user="LAA1291154";
     $pass="kadai";
 
     try{
 
         $db = new PDO($pdo,$user,$pass);//データベースへアクセス（PDO文）
-        $db->query("INSERT INTO `msgs` (ban,y_i,mes,dat)
+        $db->query("INSERT INTO `msgs` (msg_id,y_i,mes,dat)
             VALUES (NULL,'$my_y_i','$my_mes',NOW())");//テーブルに値を入れる（Mysqlのqueryを実行）
         //SQL文で'msgs'テーブルに番号・名前・メッセージ・日付の内容を取得して保存していく
     }catch (Exception $e) {
@@ -65,15 +65,15 @@ if(isset($_POST['n'])) {
 <!-----------DBに書き込み--------------->
     <!-----------DBから取り込む--------------->
     <?php
-    $pdo= "mysql:host=localhost;dbname=LAA1291148-kadai;charset=utf8";
-    $user="LAA1291148";
+    $pdo= "mysql:host=mysql207.phy.lolipop.lan;dbname=LAA1291154-kadaicross;charset=utf8";
+    $user="LAA1291154";
     $pass="kadai";
     try {
         $pdo = new PDO($pdo, $user, $pass);
     } catch (PDOException $e) {
         echo 'Connection failed: ' . $e->getMessage();
     }
-    $ps = $pdo->query("SELECT * FROM `msgs` ORDER BY ban DESC");//「msgs」テーブルから番号の降順に投稿内容を取得する
+    $ps = $pdo->query("SELECT * FROM `msgs` ORDER BY msg_id DESC");//「msgs」テーブルから番号の降順に投稿内容を取得する
 
 
 //ここから「何分前」の表示プログラム====================================
